@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 project(huaray_camera)
 
 set(CMAKE_CXX_STANDARD 11)
-#find_library( MVSDK HINTS ./camera_lib/ REQUIRED)
+find_library( CAMERA_LIB HINTS ./camera_lib/x86 REQUIRED)
 
 #find_library(CAMERA_LIB_1 rt HINTS ./camera_lib/GenICam/bin/Linux64_x64/)
 find_package( OpenCV REQUIRED )
