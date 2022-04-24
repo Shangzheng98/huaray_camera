@@ -1,0 +1,650 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2765f/fast && /usr/bin/make  -f CMakeFiles/cmTC_2765f.dir/build.make CMakeFiles/cmTC_2765f.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2765f.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_2765f.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2765f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2765f.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_2765f.dir/src.c.o -o cmTC_2765f 
+CMakeFiles/cmTC_2765f.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_2765f.dir/build.make:98: recipe for target 'cmTC_2765f' failed
+make[1]: *** [cmTC_2765f] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_2765f/fast' failed
+make: *** [cmTC_2765f/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_39729/fast && /usr/bin/make  -f CMakeFiles/cmTC_39729.dir/build.make CMakeFiles/cmTC_39729.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_39729.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_39729.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_39729
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_39729.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_39729.dir/CheckFunctionExists.c.o -o cmTC_39729  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_39729.dir/build.make:98: recipe for target 'cmTC_39729' failed
+make[1]: *** [cmTC_39729] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_39729/fast' failed
+make: *** [cmTC_39729/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0be72/fast && /usr/bin/make  -f CMakeFiles/cmTC_0be72.dir/build.make CMakeFiles/cmTC_0be72.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0be72.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_0be72.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0be72
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0be72.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_0be72.dir/src.c.o -o cmTC_0be72 
+CMakeFiles/cmTC_0be72.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_0be72.dir/build.make:98: recipe for target 'cmTC_0be72' failed
+make[1]: *** [cmTC_0be72] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_0be72/fast' failed
+make: *** [cmTC_0be72/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_63fb0/fast && /usr/bin/make  -f CMakeFiles/cmTC_63fb0.dir/build.make CMakeFiles/cmTC_63fb0.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_63fb0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_63fb0.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_63fb0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63fb0.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_63fb0.dir/CheckFunctionExists.c.o -o cmTC_63fb0  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_63fb0.dir/build.make:98: recipe for target 'cmTC_63fb0' failed
+make[1]: *** [cmTC_63fb0] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_63fb0/fast' failed
+make: *** [cmTC_63fb0/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8e82f/fast && /usr/bin/make  -f CMakeFiles/cmTC_8e82f.dir/build.make CMakeFiles/cmTC_8e82f.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e82f.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_8e82f.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_8e82f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8e82f.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_8e82f.dir/src.c.o -o cmTC_8e82f 
+CMakeFiles/cmTC_8e82f.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8e82f.dir/build.make:98: recipe for target 'cmTC_8e82f' failed
+make[1]: *** [cmTC_8e82f] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_8e82f/fast' failed
+make: *** [cmTC_8e82f/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_852f0/fast && /usr/bin/make  -f CMakeFiles/cmTC_852f0.dir/build.make CMakeFiles/cmTC_852f0.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_852f0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_852f0.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_852f0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_852f0.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_852f0.dir/CheckFunctionExists.c.o -o cmTC_852f0  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_852f0.dir/build.make:98: recipe for target 'cmTC_852f0' failed
+make[1]: *** [cmTC_852f0] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_852f0/fast' failed
+make: *** [cmTC_852f0/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_71a3b/fast && /usr/bin/make  -f CMakeFiles/cmTC_71a3b.dir/build.make CMakeFiles/cmTC_71a3b.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_71a3b.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_71a3b.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_71a3b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71a3b.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_71a3b.dir/src.c.o -o cmTC_71a3b 
+CMakeFiles/cmTC_71a3b.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_71a3b.dir/build.make:98: recipe for target 'cmTC_71a3b' failed
+make[1]: *** [cmTC_71a3b] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_71a3b/fast' failed
+make: *** [cmTC_71a3b/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_895a0/fast && /usr/bin/make  -f CMakeFiles/cmTC_895a0.dir/build.make CMakeFiles/cmTC_895a0.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_895a0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_895a0.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_895a0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_895a0.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_895a0.dir/CheckFunctionExists.c.o -o cmTC_895a0  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_895a0.dir/build.make:98: recipe for target 'cmTC_895a0' failed
+make[1]: *** [cmTC_895a0] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_895a0/fast' failed
+make: *** [cmTC_895a0/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ea843/fast && /usr/bin/make  -f CMakeFiles/cmTC_ea843.dir/build.make CMakeFiles/cmTC_ea843.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea843.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_ea843.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ea843
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea843.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_ea843.dir/src.c.o -o cmTC_ea843 
+CMakeFiles/cmTC_ea843.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ea843.dir/build.make:98: recipe for target 'cmTC_ea843' failed
+make[1]: *** [cmTC_ea843] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_ea843/fast' failed
+make: *** [cmTC_ea843/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d68ad/fast && /usr/bin/make  -f CMakeFiles/cmTC_d68ad.dir/build.make CMakeFiles/cmTC_d68ad.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d68ad.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_d68ad.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d68ad
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d68ad.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_d68ad.dir/CheckFunctionExists.c.o -o cmTC_d68ad  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_d68ad.dir/build.make:98: recipe for target 'cmTC_d68ad' failed
+make[1]: *** [cmTC_d68ad] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_d68ad/fast' failed
+make: *** [cmTC_d68ad/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_33433/fast && /usr/bin/make  -f CMakeFiles/cmTC_33433.dir/build.make CMakeFiles/cmTC_33433.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_33433.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_33433.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_33433
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_33433.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_33433.dir/src.c.o -o cmTC_33433 
+CMakeFiles/cmTC_33433.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_33433.dir/build.make:98: recipe for target 'cmTC_33433' failed
+make[1]: *** [cmTC_33433] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_33433/fast' failed
+make: *** [cmTC_33433/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4df48/fast && /usr/bin/make  -f CMakeFiles/cmTC_4df48.dir/build.make CMakeFiles/cmTC_4df48.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4df48.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_4df48.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4df48
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4df48.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_4df48.dir/CheckFunctionExists.c.o -o cmTC_4df48  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_4df48.dir/build.make:98: recipe for target 'cmTC_4df48' failed
+make[1]: *** [cmTC_4df48] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_4df48/fast' failed
+make: *** [cmTC_4df48/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_36337/fast && /usr/bin/make  -f CMakeFiles/cmTC_36337.dir/build.make CMakeFiles/cmTC_36337.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_36337.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_36337.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_36337
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36337.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_36337.dir/src.c.o -o cmTC_36337 
+CMakeFiles/cmTC_36337.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_36337.dir/build.make:98: recipe for target 'cmTC_36337' failed
+make[1]: *** [cmTC_36337] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_36337/fast' failed
+make: *** [cmTC_36337/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_312da/fast && /usr/bin/make  -f CMakeFiles/cmTC_312da.dir/build.make CMakeFiles/cmTC_312da.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_312da.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_312da.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_312da
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_312da.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_312da.dir/CheckFunctionExists.c.o -o cmTC_312da  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_312da.dir/build.make:98: recipe for target 'cmTC_312da' failed
+make[1]: *** [cmTC_312da] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_312da/fast' failed
+make: *** [cmTC_312da/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_db713/fast && /usr/bin/make  -f CMakeFiles/cmTC_db713.dir/build.make CMakeFiles/cmTC_db713.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_db713.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_db713.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_db713
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db713.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_db713.dir/src.c.o -o cmTC_db713 
+CMakeFiles/cmTC_db713.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_db713.dir/build.make:98: recipe for target 'cmTC_db713' failed
+make[1]: *** [cmTC_db713] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_db713/fast' failed
+make: *** [cmTC_db713/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b8eb9/fast && /usr/bin/make  -f CMakeFiles/cmTC_b8eb9.dir/build.make CMakeFiles/cmTC_b8eb9.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8eb9.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_b8eb9.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b8eb9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8eb9.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_b8eb9.dir/CheckFunctionExists.c.o -o cmTC_b8eb9  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_b8eb9.dir/build.make:98: recipe for target 'cmTC_b8eb9' failed
+make[1]: *** [cmTC_b8eb9] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_b8eb9/fast' failed
+make: *** [cmTC_b8eb9/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0ffcb/fast && /usr/bin/make  -f CMakeFiles/cmTC_0ffcb.dir/build.make CMakeFiles/cmTC_0ffcb.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ffcb.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_0ffcb.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0ffcb
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ffcb.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_0ffcb.dir/src.c.o -o cmTC_0ffcb 
+CMakeFiles/cmTC_0ffcb.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_0ffcb.dir/build.make:98: recipe for target 'cmTC_0ffcb' failed
+make[1]: *** [cmTC_0ffcb] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_0ffcb/fast' failed
+make: *** [cmTC_0ffcb/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0a827/fast && /usr/bin/make  -f CMakeFiles/cmTC_0a827.dir/build.make CMakeFiles/cmTC_0a827.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0a827.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_0a827.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0a827
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0a827.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_0a827.dir/CheckFunctionExists.c.o -o cmTC_0a827  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_0a827.dir/build.make:98: recipe for target 'cmTC_0a827' failed
+make[1]: *** [cmTC_0a827] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_0a827/fast' failed
+make: *** [cmTC_0a827/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ceda9/fast && /usr/bin/make  -f CMakeFiles/cmTC_ceda9.dir/build.make CMakeFiles/cmTC_ceda9.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ceda9.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_ceda9.dir/src.c.o -c /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ceda9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ceda9.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_ceda9.dir/src.c.o -o cmTC_ceda9 
+CMakeFiles/cmTC_ceda9.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x58): undefined reference to `pthread_cancel'
+src.c:(.text+0x64): undefined reference to `pthread_join'
+src.c:(.text+0x74): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ceda9.dir/build.make:98: recipe for target 'cmTC_ceda9' failed
+make[1]: *** [cmTC_ceda9] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_ceda9/fast' failed
+make: *** [cmTC_ceda9/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ab1c7/fast && /usr/bin/make  -f CMakeFiles/cmTC_ab1c7.dir/build.make CMakeFiles/cmTC_ab1c7.dir/build
+make[1]: Entering directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ab1c7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_ab1c7.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ab1c7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ab1c7.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_ab1c7.dir/CheckFunctionExists.c.o -o cmTC_ab1c7  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ab1c7.dir/build.make:98: recipe for target 'cmTC_ab1c7' failed
+make[1]: *** [cmTC_ab1c7] Error 1
+make[1]: Leaving directory '/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_ab1c7/fast' failed
+make: *** [cmTC_ab1c7/fast] Error 2
+
+
+
