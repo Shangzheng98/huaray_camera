@@ -3,7 +3,6 @@
 //
 
 #include "Camera.h"
-
 Camera::Camera() {
     this->status = IMV_OK;
     IMV_HANDLE temp_devHandle = NULL;

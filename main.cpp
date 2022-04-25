@@ -1,4 +1,5 @@
 ﻿#include "Camera.h"
+#include <iostream>
 
 int main() {
     Camera camera;
@@ -6,9 +7,8 @@ int main() {
     cv::Mat frame;
     while (true) {
         camera.getImage(frame);
-
-        cv::imshow("window0",frame);
-        cv::waitKey(1);
+        cv::imshow("window0.png",frame);
+        cv::waitKey(10);
     }
 
 
