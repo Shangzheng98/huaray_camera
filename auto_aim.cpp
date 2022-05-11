@@ -62,19 +62,26 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
     threshold(color_result_img, binary_color_img, color_th_, 255, THRESH_BINARY);
 
     if (debug_) {
-        imshow("raw image", roi_image);
         imshow("binary_brightness_img", binary_brightness_img);
         imshow("binary_color_img", binary_color_img);
         //for testing
-        waitKey(1);
-        return true;
+
     }
     vector<vector<Point> > contours_light;
     vector<vector<Point> > contours_brightness;
 
     findContours(binary_color_img, contours_light, RETR_EXTERNAL, CHAIN_APPROX_NONE);
     findContours(binary_brightness_img, contours_brightness, RETR_EXTERNAL, CHAIN_APPROX_NONE);
-
+    for (unsigned int i = 0; i < contours_brightness.size(); i++) {
+        drawContours( debug_img, contours_brightness, (int)i, Scalar(255, 0, 255), 2, LINE_8 );
+    }
+    for (unsigned int j = 0; j < contours_light.size(); j++) {
+        drawContours( debug_img, contours_light, (int)j, Scalar(255, 0, 255), 2, LINE_8);
+    }
+    if (debug_) {
+        imshow("debug_img", debug_img);
+        waitKey(1);
+    }
     if (contours_brightness.size() < 2 || contours_light.size() < 2 || contours_brightness.size() > 10 ||
         contours_light.size() > 10) {
         return found_flag;
@@ -86,8 +93,10 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
             continue;
         }
         for (unsigned int j = 0; j < contours_light.size(); j++) {
+
             if (pointPolygonTest(contours_light[j], contours_brightness[i][0], false) >= 0.0) {
                 double length = arcLength(contours_brightness[i], true); // 灯条周长
+
                 if (length > 20 && length < 4000) {
                     RotatedRect RRect = fitEllipse(contours_brightness[i]);
                     //RotatedRect RRect = minAreaRect(contours_brightness[i]);
@@ -125,6 +134,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
             }
         }
     }
+
     //==========================================possible armor=========================================
     for (size_t i = 0; i < LED_bars.size(); i++) {
         for (size_t j = i + 1; j < LED_bars.size(); j++) {
