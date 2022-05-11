@@ -13,9 +13,8 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 
 
-add_executable(huaray_camera main.cpp Camera.cpp Camera.h)
+add_executable(huaray_camera main.cpp Camera.cpp Camera.h auto_aim.cpp armor.cpp auto_aim.hpp armor.hpp )
 message(STATUS ${CAMERA_LIB})
-target_link_libraries(huaray_camera  ${CAMERA_LIB} ${OpenCV_LIBS} rt pthread)
 
 #link_directories(./camera_lib/x86/)
 message(${CAMERA_LIB})
