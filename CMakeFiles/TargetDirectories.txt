@@ -1,3 +1,0 @@
-/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/huaray_camera.dir
-/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/edit_cache.dir
-/home/nvidia/Desktop/TR_CV/huaray_camera/CMakeFiles/rebuild_cache.dir
