@@ -52,7 +52,7 @@ private:
     int lost_count = 0;
     int detect_count = 0;
 
-    uint8_t color = 1;
+    uint8_t color_ = 1;
     uint8_t level_{};
     uint8_t type_{};
     std::vector<cv::Point2f> final_armor_2Dpoints;

@@ -52,7 +52,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
     cvtColor(roi_image, gray, COLOR_BGR2GRAY);
     split(roi_image, BGR_channels);
-    if (1 == 1) // opposite red
+    if (color_ == 1) // opposite red
     {
         subtract(BGR_channels[2], BGR_channels[0], color_result_img);
     } else {
