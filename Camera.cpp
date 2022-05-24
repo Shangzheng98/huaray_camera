@@ -50,7 +50,7 @@ int Camera::init() {
 
     // Set feature value
 
-    this->status = setProperty(3000.00,1280,1024);
+    this->status = setProperty(1000.00,1280,1800);
 
     // start grabbing
     this->status = IMV_StartGrabbing(this->devHandle);

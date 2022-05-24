@@ -52,9 +52,9 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
     cvtColor(roi_image, gray, COLOR_BGR2GRAY);
     split(roi_image, BGR_channels);
-    if (color_ == 0) // opposite red
+    if (color_ == 1) // opposite red
     {
-        subtract(BGR_channels[2], BGR_channels[1], color_result_img);
+        subtract(BGR_channels[2], BGR_channels[0], color_result_img);
     } else {
         subtract(BGR_channels[0], BGR_channels[2], color_result_img);
     }
@@ -76,12 +76,9 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
         drawContours( debug_img, contours_brightness, (int)i, Scalar(255, 0, 255), 2, LINE_8 );
     }
     for (unsigned int j = 0; j < contours_light.size(); j++) {
-        drawContours( debug_img, contours_light, (int)j, Scalar(255, 0, 255), 2, LINE_8);
+        drawContours( debug_img, contours_light, (int)j, Scalar(0, 0, 255), 2, LINE_8);
     }
-    if (debug_) {
-        imshow("debug_img", debug_img);
-        waitKey(1);
-    }
+
     if (contours_brightness.size() < 2 || contours_light.size() < 2 || contours_brightness.size() > 10 ||
         contours_light.size() > 10) {
         return found_flag;
@@ -96,7 +93,6 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
             if (pointPolygonTest(contours_light[j], contours_brightness[i][0], false) >= 0.0) {
                 double length = arcLength(contours_brightness[i], true); // 灯条周长
-
                 if (length > 20 && length < 4000) {
                     RotatedRect RRect = fitEllipse(contours_brightness[i]);
                     //RotatedRect RRect = minAreaRect(contours_brightness[i]);
@@ -106,7 +102,6 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
                     if (RRect.angle > 90.0f)
                         RRect.angle = RRect.angle - 180.0f;
-
 
                     if (fabs(RRect.angle) < 30) {
                         if (debug_) {
@@ -124,7 +119,6 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
                             putText(debug_img, temp1, RRect.center + Point2f(0, -10) + offset_roi_point,
                                     FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 1);
                         }
-                        
                         LED_bar r(RRect);
                         LED_bars.emplace_back(r);
 
@@ -143,7 +137,6 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
                 if (temp_armor.is_suitable_size()) {
                     //temp_armor.draw_rect(debug_img,offset_roi_point);
                     if (temp_armor.get_average_intensity(gray) < 70) {
-
                         temp_armor.max_match(LED_bars, i, j);
 
                     }

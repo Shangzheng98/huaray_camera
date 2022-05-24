@@ -23,8 +23,8 @@ public:
 
     void subscription_execute();
 
-    int color_th_ = 13;
-    int gray_th_ = 24;
+    int color_th_ = 41;
+    int gray_th_ = 26;
     int OFFSET_INT_YAW = 1800;
     int OFFSET_INT_PITCH = 1800;
     int OFFSET_YAW{};
@@ -52,14 +52,14 @@ private:
     int lost_count = 0;
     int detect_count = 0;
 
-    uint8_t color_{};
+    uint8_t color_ = 1;
     uint8_t level_{};
     uint8_t type_{};
     std::vector<cv::Point2f> final_armor_2Dpoints;
 
 
     // the armor type
-    bool is_small = true;
+    bool is_small = false;
 
     // solvePnP
     std::vector<cv::Point3f> small_real_armor_points;
