@@ -52,9 +52,9 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
     cvtColor(roi_image, gray, COLOR_BGR2GRAY);
     split(roi_image, BGR_channels);
-    if (color_ == 1) // opposite red
+    if (color_ == 0) // opposite red
     {
-        subtract(BGR_channels[2], BGR_channels[0], color_result_img);
+        subtract(BGR_channels[2], BGR_channels[1], color_result_img);
     } else {
         subtract(BGR_channels[0], BGR_channels[2], color_result_img);
     }
@@ -65,6 +65,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
         imshow("binary_brightness_img", binary_brightness_img);
         imshow("binary_color_img", binary_color_img);
         //for testing
+        waitKey(1);
 
     }
     vector<vector<Point> > contours_light;
@@ -76,13 +77,13 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
         drawContours( debug_img, contours_brightness, (int)i, Scalar(255, 0, 255), 2, LINE_8 );
     }
     for (unsigned int j = 0; j < contours_light.size(); j++) {
-        drawContours( debug_img, contours_light, (int)j, Scalar(0, 0, 255), 2, LINE_8);
+        drawContours( debug_img, contours_light, (int)j, Scalar(255, 0, 255), 2, LINE_8);
     }
 
-    if (contours_brightness.size() < 2 || contours_light.size() < 2 || contours_brightness.size() > 10 ||
-        contours_light.size() > 10) {
-        return found_flag;
-    }
+//    if (contours_brightness.size() < 2 || contours_light.size() < 2 || contours_brightness.size() > 10 ||
+//        contours_light.size() > 10) {
+//        return found_flag;
+//    }
 
     for (unsigned int i = 0; i < contours_brightness.size(); i++) {
         double area = contourArea(contours_brightness[i]);
@@ -93,6 +94,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
             if (pointPolygonTest(contours_light[j], contours_brightness[i][0], false) >= 0.0) {
                 double length = arcLength(contours_brightness[i], true); // 灯条周长
+
                 if (length > 20 && length < 4000) {
                     RotatedRect RRect = fitEllipse(contours_brightness[i]);
                     //RotatedRect RRect = minAreaRect(contours_brightness[i]);
@@ -102,6 +104,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
                     if (RRect.angle > 90.0f)
                         RRect.angle = RRect.angle - 180.0f;
+
 
                     if (fabs(RRect.angle) < 30) {
                         if (debug_) {
@@ -119,6 +122,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
                             putText(debug_img, temp1, RRect.center + Point2f(0, -10) + offset_roi_point,
                                     FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 1);
                         }
+                        
                         LED_bar r(RRect);
                         LED_bars.emplace_back(r);
 
@@ -137,6 +141,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
                 if (temp_armor.is_suitable_size()) {
                     //temp_armor.draw_rect(debug_img,offset_roi_point);
                     if (temp_armor.get_average_intensity(gray) < 70) {
+
                         temp_armor.max_match(LED_bars, i, j);
 
                     }
@@ -202,10 +207,10 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
         R.points(point_tmp);
         point_2d[1] = point_tmp[2];
         point_2d[2] = point_tmp[3];
-        vector<Point2f> points_roi_tmp;
+//        vector<Point2f> points_roi_tmp;
         final_armor_2Dpoints.clear();
         for (int i = 0; i < 4; i++) {
-            points_roi_tmp.push_back(point_2d[i] + offset_roi_point);
+//            points_roi_tmp.push_back(point_2d[i] + offset_roi_point);
             final_armor_2Dpoints.push_back(point_2d[i] + offset_roi_point);
             circle(debug_img, final_armor_2Dpoints.at(i), 5, Scalar(255, 255, 255), -1);
             circle(debug_img, final_armor_2Dpoints.at(i), 3, Scalar(i * 50, i * 50, 255), -1);
@@ -216,7 +221,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
         is_small = armor_w / armor_h < 3.3f;
 
         //get the new target
-        last_target_ = boundingRect(points_roi_tmp);
+        last_target_ = boundingRect(final_armor_2Dpoints);
         if(debug_) {
             rectangle(debug_img, last_target_, Scalar(255, 255, 255), 1);
         }
@@ -229,6 +234,7 @@ bool ArmorDetector::DetectArmor(cv::Mat &img, const cv::Rect &roi) {
 
     if (debug_) {
         imshow("debug_img", debug_img);
+        //printf("%f, %f\n", final_armor_2Dpoints[0].x, final_armor_2Dpoints[0].y);
         waitKey(1);
     }
     
@@ -246,15 +252,17 @@ void ArmorDetector::execute(cv::Mat &cameraFrame) {
         roi = Rect(0, 0, img_size.width, img_size.height);
     }
 
-    Point3f target_3d = {0, 0, 0};
+
 
     //for testing
     // OFFSET_YAW = (OFFSET_INT_YAW - 1800);
     // OFFSET_PITCH = (OFFSET_INT_PITCH - 1800);
     if (DetectArmor(cameraFrame, roi)) {
 
+        Point3f target_3d = {0, 0, 0};
+        target_3d = getPose();
 
-        //target_3d = getPose();
+        printf("x: %f, y: %f, z: %f\n", target_3d.x, target_3d.y, target_3d.z);
 
         // int pitch = int((atan2(target_3d.y - 80, target_3d.z) + (float) (OFFSET_PITCH * CV_PI / 1800)) * 0.6 * 10000);
         //int pitch = 15000;
